@@ -2,7 +2,7 @@
 ![](https://i.imgur.com/VUTBp8E.jpg)
 
 ## Overview
-It is a very simlpe website for you to view poupular restaurants in your location.
+It is a very simlpe website for you to view hip restaurants.
 
 ## 🌻Features
 * Search for restaurants(restaurant's name or category)
