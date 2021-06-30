@@ -13,4 +13,4 @@ It is a very simlpe website for you to view poupular restaurants in your locatio
 2. Enter `cd Restaurant-List`
 3. Run `npm install`
 4. Run `npm run dev`
-5. Once you see *Express listening on localhost:3000*, insert [http://localhost:3000](localhost:3000) on your browser to play with it 👍🏻
+5. Once you see *Express listening on localhost:3000*, insert [localhost:3000](https://) on your browser to play with it 👍🏻
