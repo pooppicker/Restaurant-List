@@ -18,9 +18,10 @@ db.on('error', () => {
 db.once('open', () => {
   console.log('mongodb connected!')
 })
-// 設定 template engine
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
-app.set('view engine', 'handlebars')
+// 建立名為 hbs 的樣版引擎
+app.engine('handlebars', exphbs({ defaultLayout: 'main', extname: '.hbs'}))
+// 啟用樣版引擎
+app.set('view engine', 'hbs')
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
