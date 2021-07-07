@@ -2,7 +2,7 @@
 ![](https://i.imgur.com/VUTBp8E.jpg)
 
 ## Overview
-It is a very simlpe website for you to view poupular restaurants in your location.
+It is a very simlpe website for you to view hip restaurants.
 
 ## 🌻Features
 * Search for restaurants(restaurant's name or category)
@@ -13,4 +13,4 @@ It is a very simlpe website for you to view poupular restaurants in your locatio
 2. Enter `cd Restaurant-List`
 3. Run `npm install`
 4. Run `npm run dev`
-5. Once you see *Express listening on localhost:3000*, click [http://localhost:3000 ](https://) to play with it 👍🏻
+5. Once you see *Express listening on localhost:3000*, insert <a href="http://localhost:3000">http://localhost:3000</a> on your browser to play with it 👍🏻
