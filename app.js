@@ -35,19 +35,19 @@ app.get('/', (req, res) => {
     .catch(error => console.log(error)) //除錯
 })
 
-// app.get('/restaurants/new', (req, res) => {
-//   return res.render('new')
-// })
+app.get('/restaurants/new', (req, res) => {
+  return res.render('new')
+})
 
-// app.post('/restaurants', (req, res) => {
-//   const { name, name_en, category, location, phone, rating, google_map, image, description } = req.body
-//   if (!name || !name_en || !category || !location || !phone || !rating || !google_map || !image || !description) {
-//     return res.redirect('/restaurants/new')
-//   }
-//   return Restaurant.create({ name, name_en, category, location, phone, rating, google_map, image, description })
-//     .then(() => res.redirect('/'))
-//     .catch((error) => console.log(error))
-// })
+app.post('/restaurants', (req, res) => {
+  const { name, name_en, category, location, phone, rating, google_map, image, description } = req.body
+  if (!name || !name_en || !category || !location || !phone || !rating || !google_map || !image || !description) {
+    return res.redirect('/restaurants/new')
+  }
+  return Restaurant.create({ name, name_en, category, location, phone, rating, google_map, image, description })
+    .then(() => res.redirect('/'))
+    .catch((error) => console.log(error))
+})
 
 app.get('/restaurants/searches', (req, res) => {
   const keyword = req.query.keyword
