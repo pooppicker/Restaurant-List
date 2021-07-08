@@ -24,7 +24,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main', extname: '.hbs'}))
 app.set('view engine', 'hbs')
 //靜態檔案放在public資料夾裡
 app.use(express.static('public'))
-
+//設定路由
 app.get('/', (req, res) => {
   Restaurant.find() //取出 Restaurant model 裡所有資料
     .lean() //把 Mongoose 的 Model 物件轉換成乾淨的JS資料陣列
@@ -32,17 +32,16 @@ app.get('/', (req, res) => {
     .catch(error => console.log(error)) //除錯
 })
 
-app.get('/restaurants/:restaurant_id', (req, res) => {
-  const restaurant = restaurantList.results.find(restaurant => restaurant.id.toString() === req.params.restaurant_id)
-  res.render('show', {restaurant: restaurant})
-})
-
 app.get('/restaurants/searches', (req, res) => {
-  const keyword = req.query.keyword
+  const keyword = req.query.keyword.trim().toLowerCase()
   const restaurants = restaurantList.results.filter(restaurant => {
     return restaurant.name.toLowerCase().includes(keyword.toLowerCase())
   })
-  res.render('index', {restaurants: restaurants, keyword: keyword})
+})
+
+app.get('/restaurants/:restaurant_id', (req, res) => {
+  const restaurant = restaurantList.results.find(restaurant => restaurant.id.toString() === req.params.restaurant_id)
+  res.render('show', {restaurant: restaurant})
 })
 
 app.listen(port, () => {
