@@ -5,7 +5,7 @@
         <div class="card-body">
           <h5 class="card-title">Add Your Favorite Restaurant <i class="fab fa-angellist"></i></h5>
           <hr>
-          <form action="/restaurants" method="post" class="d-flex flex-column m-3" id="form" novalidate>
+          <form action="/restaurants" method="post" class="d-flex flex-column m-3" id="form">
             <div class="form-group form-row">
               <label for="name" class="col-md-4 col-form-label">
                 Restaurant's Name
@@ -87,7 +87,7 @@
               </div>
             </div>
             <div class="form-group form-row">
-              <label for="rating" class="col-md-4 col-form-label">
+              <label class="col-md-4 col-form-label">
                 Rating
               </label>
               <div class="col-md-8">
@@ -101,13 +101,16 @@
                 Description
               </label>
               <div class="col-md-8">
-                <textarea name="description" class="form-control" id="description" placeholder="describe the restaurant" required></textarea>
-                <div class="valid-feedback">Looks good!</div>
-                <div class="invalid-feedback">This field is required!</div>
+                <textarea name="description" class="form-control" id="description" placeholder="describe the restaurant"></textarea>
               </div>
             </div>
-            <button class="btn btn-success col-md-2" type="submit" id="submit-btn">Submit</button>
+            <div class="container d-flex justify-content-center">
+              <button class="btn btn-success col-md-2  m-2" type="submit" id="submit-btn"><a href="/" style="color: white; text-decoration:none;">Submit</a></button>
+              <button class="btn btn-primary col-md-2 m-2" type="button" id="submit-btn"><a href="/" style="color: white; text-decoration:none;">Back</a></button>
+            </div>
+            
           </form>
+          
         </div>
       </div>
     </div>

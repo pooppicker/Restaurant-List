@@ -1,0 +1,113 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-lg-10 col-xl-8 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Add Your Favorite Restaurant <i class="fab fa-angellist"></i></h5>
+          <hr>
+          <form action="/restaurants/{{restaurant._id}}/edit" method="post" class="d-flex flex-column m-3" id="form">
+            <div class="form-group form-row">
+              <label for="name" class="col-md-4 col-form-label">
+                Restaurant's Name
+              </label>
+              <div class="col-md-8">
+                <input type="text" name="length" class="form-control" id="name" placeholder="please enter restaurant's name" value="{{ restaurant.name }}" required>
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">This field is required!</div>
+              </div>
+            </div>
+            <div class="form-group form-row">
+              <label for="name_en" class="col-md-4 col-form-label">
+                Restaurant's English Name
+              </label>
+              <div class="col-md-8">
+                <input type="text" name="name_en" class="form-control" id="name_en" placeholder="please enter restaurant's English name" value="{{ restaurant.name_en }}">
+                <small class="text-muted form-text">Optional</small>
+              </div>
+            </div>
+            <div class="form-group form-row">
+              <label for="category" class="col-md-4 col-form-label">
+                Category
+              </label>
+              <div class="col-md-8">
+                <select class="form-control" required>
+                  <option selected disabled value="">Choose...</option>
+                  <option>中東料理</option>
+                  <option>日本料理</option>
+                  <option>義式料理</option>
+                  <option>美式料理</option>
+                  <option>韓式料理</option>
+                  <option>泰式料理</option>
+                  <option>酒吧</option>
+                  <option>咖啡</option>
+                  <option>其他</option>
+                </select>
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">This field is required!</div>
+              </div>
+            </div>
+            <div class="form-group form-row">
+              <label for="location" class="col-md-4 col-form-label">
+                Location
+              </label>
+              <div class="col-md-8">
+                <input type="text" name="location" class="form-control" id="location" placeholder="please enter address" value="{{ restaurant.location }}" required>
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">This field is required!</div>
+              </div>
+            </div>
+            <div class="form-group form-row">
+              <label for="phone" class="col-md-4 col-form-label">
+                Phone No.
+              </label>
+              <div class="col-md-8">
+                <input type="text" name="phone" class="form-control" id="phone" placeholder="02123456789" value="{{ restaurant.phone }}" required>
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">This field is required!</div>
+              </div>
+            </div>
+            <div class="form-group form-row">
+              <label for="google_map" class="col-md-4 col-form-label">
+                Google Map 
+              </label>
+              <div class="col-md-8">
+                <input type="url" name="google_map" class="form-control" id="google_map" placeholder="enter https://www.google.com/maps/place/..." value="{{ restaurant.google_map }}" required>
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">This field is required!</div>
+              </div>
+            </div>
+            <div class="form-group form-row">
+              <label for="url" class="col-md-4 col-form-label">
+                Image
+              </label>
+              <div class="col-md-8">
+                <input type="text" name="image" class="form-control" id="image" placeholder="insert image url" value="{{ restaurant.image }}" required>
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">This field is required!</div>
+              </div>
+            </div>
+            <div class="form-group form-row">
+              <label for="rating" class="col-md-4 col-form-label">
+                Rating
+              </label>
+              <div class="col-md-8">
+                <input type="number" name="rating" class="form-control" id="rating" min="1" max="5" placeholder="5-favorite -> 1-least favorite" value="{{ restaurant.rating }}" required>
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">This field is required!</div>
+              </div>
+            </div>
+            <div class="form-group form-row">
+              <label for="description" class="col-md-4 col-form-label">
+                Description
+              </label>
+              <div class="col-md-8">
+                <textarea name="description" class="form-control" id="description" placeholder="describe the restaurant">{{ restaurant.description }}</textarea>
+              </div>
+            </div>
+            <button class="btn btn-success col-md-2" type="submit" id="submit-btn"><a href="/" style="color: white; text-decoration:none;">Submit</a></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
