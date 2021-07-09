@@ -5,13 +5,13 @@
         <div class="card-body">
           <h5 class="card-title">Add Your Favorite Restaurant <i class="fab fa-angellist"></i></h5>
           <hr>
-          <form action="/restaurants/{{restaurant._id}}/edit" method="POST" class="d-flex flex-column m-3" id="form" novalidate>
+          <form action="/restaurants/{{restaurant._id}}/edit" method="POST" class="d-flex flex-column m-3" id="form">
             <div class="form-group form-row">
               <label for="name" class="col-md-4 col-form-label">
                 Restaurant's Name
               </label>
               <div class="col-md-8">
-                <input type="text" name="length" class="form-control" id="name" placeholder="please enter restaurant's name" value="{{ restaurant.name }}" required>
+                <input type="text" name="length" class="form-control" id="name" placeholder="please enter restaurant's name" required value="{{ restaurant.name }}" >
                 <div class="valid-feedback">Looks good!</div>
                 <div class="invalid-feedback">This field is required!</div>
               </div>
@@ -22,7 +22,6 @@
               </label>
               <div class="col-md-8">
                 <input type="text" name="name_en" class="form-control" id="name_en" placeholder="please enter restaurant's English name" value="{{ restaurant.name_en }}">
-                <small class="text-muted form-text">Optional</small>
               </div>
             </div>
             <div class="form-group form-row">
@@ -30,7 +29,7 @@
                 Category
               </label>
               <div class="col-md-8">
-                <select class="form-control" required>
+                <select class="form-control">
                   <option selected disabled value="">Choose...</option>
                   <option>中東料理</option>
                   <option>日本料理</option>
@@ -42,8 +41,6 @@
                   <option>咖啡</option>
                   <option>其他</option>
                 </select>
-                <div class="valid-feedback">Looks good!</div>
-                <div class="invalid-feedback">This field is required!</div>
               </div>
             </div>
             <div class="form-group form-row">
@@ -52,8 +49,6 @@
               </label>
               <div class="col-md-8">
                 <input type="text" name="location" class="form-control" id="location" placeholder="please enter address" value="{{ restaurant.location }}" required>
-                <div class="valid-feedback">Looks good!</div>
-                <div class="invalid-feedback">This field is required!</div>
               </div>
             </div>
             <div class="form-group form-row">
@@ -62,8 +57,6 @@
               </label>
               <div class="col-md-8">
                 <input type="text" name="phone" class="form-control" id="phone" placeholder="02123456789" value="{{ restaurant.phone }}" required>
-                <div class="valid-feedback">Looks good!</div>
-                <div class="invalid-feedback">This field is required!</div>
               </div>
             </div>
             <div class="form-group form-row">
@@ -72,8 +65,6 @@
               </label>
               <div class="col-md-8">
                 <input type="url" name="google_map" class="form-control" id="google_map" placeholder="enter https://www.google.com/maps/place/..." value="{{ restaurant.google_map }}" required>
-                <div class="valid-feedback">Looks good!</div>
-                <div class="invalid-feedback">This field is required!</div>
               </div>
             </div>
             <div class="form-group form-row">
@@ -82,8 +73,6 @@
               </label>
               <div class="col-md-8">
                 <input type="text" name="image" class="form-control" id="image" placeholder="insert image url" value="{{ restaurant.image }}" required>
-                <div class="valid-feedback">Looks good!</div>
-                <div class="invalid-feedback">This field is required!</div>
               </div>
             </div>
             <div class="form-group form-row">
@@ -92,8 +81,6 @@
               </label>
               <div class="col-md-8">
                 <input type="number" name="rating" class="form-control" id="rating" min="1" max="5" step="0.1" placeholder="5-favorite -> 1-least favorite" value="{{ restaurant.rating }}" required>
-                <div class="valid-feedback">Looks good!</div>
-                <div class="invalid-feedback">This field is required!</div>
               </div>
             </div>
             <div class="form-group form-row">
