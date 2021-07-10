@@ -54,7 +54,7 @@ app.get('/restaurants/:id', (req, res) => {
     .catch((error) => console.error(error))
 })
 
-app.get('/restaurants/searches', (req, res) => {
+app.get('/searches', (req, res) => {
   const keyword = req.query.keyword
   Restaurant.find()
     .lean()

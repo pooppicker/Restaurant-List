@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6">
-      <form action="/restaurants/{{restaurant._id}}/edit" method="POST" id="form" class="d-flex flex-column m-3" novalidate>
+      <form action="/restaurants/{{restaurant._id}}/edit" method="POST" id="form" class="d-flex flex-column m-3 needs-validation" novalidate>
         <div class="form-group">
           <label for="name">Name</label>
           <input type="text" class="form-control" id="name" name="name" placeholder="please enter name ..." required value="{{restaurant.name}}">
