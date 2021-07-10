@@ -80,23 +80,31 @@ app.get('/restaurants/:id/edit', (req, res) => {
 
 app.post('/restaurants/:id/edit', (req, res) => {
   const id = req.params.id
-  const { name, name_en, category, location, phone, rating, google_map, image, description } = req.body
+  if (!mongoose.Types.ObjectId.isValid(id)) return res.redirect('back')
+  const editData = req.body
   return Restaurant.findById(id)
-    .then(restaurant => {
-      restaurant.name = name
-      restaurant.name_en = name_en
-      restaurant.category = category
-      restaurant.image = image
-      restaurant.location = location
-      restaurant.phone = phone
-      restaurant.google_map = google_map
-      restaurant.rating = rating
-      restaurant.description = description
+    .then((restaurant) => {
+      restaurant.name = editData.name
+      restaurant.name_en = editData.name_en
+      restaurant.category = editData.category
+      restaurant.image = editData.image
+      restaurant.location = editData.location
+      restaurant.phone = editData.phone
+      restaurant.google_map = editData.google_map
+      restaurant.rating = editData.rating
+      restaurant.description = editData.description
       return restaurant.save()
     })
     .then(() => res.redirect(`/restaurants/${id}`))
-    .catch(error => console.log(error))
+    .catch((error) => console.error(error))
+})
 
+app.get('/restaurants/:id/delete', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .then(restaurant => restaurant.remove())
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
 })
 
 app.listen(port, () => {

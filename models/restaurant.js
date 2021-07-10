@@ -10,7 +10,7 @@ const restaurantSchema = new Schema ({
   },
   category: {
     type: String,
-    required: true,
+    // required: true,
   },
   image: {
     type: String,
