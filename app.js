@@ -96,7 +96,7 @@ app.post('/restaurants/:id/edit', (req, res) => {
       return restaurant.save()
     })
     .then(() => res.redirect(`/restaurants/${id}`))
-    .catch((error) => console.error(error))
+    .catch(error => console.error(error))
 })
 
 app.get('/restaurants/:id/delete', (req, res) => {
@@ -108,5 +108,5 @@ app.get('/restaurants/:id/delete', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Express listening on localhost:${port}`)
+  console.log(`Express listening on http://localhost:${port}`)
 })
