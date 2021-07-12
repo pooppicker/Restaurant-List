@@ -2,6 +2,8 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const mongoose = require('mongoose') //載入mongoose
 const bodyParser = require('body-parser') // 引用body-parser
+const methodOverride = require('method-override') 
+
 const Restaurant = require('./models/restaurant') //載入Restaurant model
 const app = express()
 const port = 3000
@@ -24,6 +26,7 @@ app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs'}))
 app.set('view engine', 'hbs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 //設定路由
 app.get('/', (req, res) => {
   Restaurant.find() 
@@ -78,7 +81,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.post('/restaurants/:id/edit', (req, res) => {
+app.put('/restaurants/:id', (req, res) => {
   const id = req.params.id
   if (!mongoose.Types.ObjectId.isValid(id)) return res.redirect('back')
   const editData = req.body
@@ -99,7 +102,7 @@ app.post('/restaurants/:id/edit', (req, res) => {
     .catch(error => console.error(error))
 })
 
-app.get('/restaurants/:id/delete', (req, res) => {
+app.delete('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .then(restaurant => restaurant.remove())
