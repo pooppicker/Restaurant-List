@@ -1,11 +1,9 @@
 const express = require('express')
 const router = express.Router()
 
-const restaurants = require('./modules/restaurants.js')
+const Restaurant = require('../../models/restaurant')
 
-router.use('/restaurants', restaurants)
-
-app.get('/new', (req, res) => {
+router.get('/new', (req, res) => {
   return res.render('new')
 })
 
@@ -37,7 +35,6 @@ router.get('/:id/edit', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const id = req.params.id
-  if (!mongoose.Types.ObjectId.isValid(id)) return res.redirect('back')
   const editData = req.body
   return Restaurant.findById(id)
     .then((restaurant) => {
@@ -63,3 +60,5 @@ router.delete('/:id', (req, res) => {
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
+
+module.exports = router
