@@ -81,7 +81,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.put('/restaurants/:id', (req, res) => {
+app.put('/restaurants/:id/edit', (req, res) => {
   const id = req.params.id
   if (!mongoose.Types.ObjectId.isValid(id)) return res.redirect('back')
   const editData = req.body
@@ -102,7 +102,7 @@ app.put('/restaurants/:id', (req, res) => {
     .catch(error => console.error(error))
 })
 
-app.delete('/restaurants/:id', (req, res) => {
+app.delete('/restaurants/:id/delete', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .then(restaurant => restaurant.remove())
